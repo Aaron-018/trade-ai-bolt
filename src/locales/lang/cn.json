@@ -1,0 +1,23 @@
+{
+  "Public": {
+    "Copied": "已復製",
+    "AppUrlNotFound": "小程序鏈接獲取失敗",
+    "NoData": "暫無數據",
+    "NoMore": "沒有更多了",
+    "GoOn": "繼續",
+    "Success": "操作成功",
+    "ViewDetail": "查看詳情",
+    "Claim": "領取",
+    "No-Eligible": "不滿足條件",
+    "Expired": "已結束",
+    "Confirm": "確認",
+    "Cancel": "取消",
+    "Available": "餘額",
+    "InsufficientBalance": "餘額不足",
+    "EnterPassword": "請輸入錢包密碼",
+    "InvalidToken": "Token失效，請刷新頁面",
+    "LoginFailed": "登錄失敗，請刷新打开小程序",
+    "CopyLink": "複製連結",
+    "SetPwd": "設定密碼"
+  }
+}

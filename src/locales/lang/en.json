@@ -1,0 +1,23 @@
+{
+  "Public": {
+    "Copied": "Link copied",
+    "AppUrlNotFound": "App url not found",
+    "NoData": "No data found",
+    "NoMore": "No more",
+    "GoOn": "GO ON",
+    "Success": "Success",
+    "ViewDetail": "View Detail",
+    "Claim": "Claim",
+    "No-Eligible": "No-Eligible",
+    "Expired": "Expired",
+    "Confirm": "Confirm",
+    "Cancel": "Cancel",
+    "Available": "Available",
+    "InsufficientBalance": "Insufficient balance",
+    "EnterPassword": "Please enter wallet password",
+    "InvalidToken": "Token invalid, please refresh the page",
+    "LoginFailed": "Login failed, please reopen the app",
+    "CopyLink": "Copy Link",
+    "SetPwd": "Set Password"
+  }
+}
