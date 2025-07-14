@@ -110,7 +110,9 @@ export default {
           'text-muted': '#a3a3a3',
           'text-dim': '#737373',
           glow: '#10b981',
-          'glow-secondary': '#14b8a6'
+          'glow-secondary': '#14b8a6',
+          up: '#88d693',
+          down: '#f04766'
         },
         // 加密货币主题色
         crypto: {
@@ -126,10 +128,13 @@ export default {
       },
       // 背景渐变
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, var(--tw-colors-primary-500), var(--tw-colors-secondary-500))',
-        'gradient-accent': 'linear-gradient(135deg, var(--tw-colors-accent-400), var(--tw-colors-primary-600))',
+        'gradient-primary':
+          'linear-gradient(135deg, var(--tw-colors-primary-500), var(--tw-colors-secondary-500))',
+        'gradient-accent':
+          'linear-gradient(135deg, var(--tw-colors-accent-400), var(--tw-colors-primary-600))',
         'gradient-defi': 'linear-gradient(135deg, #10b981, #14b8a6, #22c55e)',
-        'gradient-crypto': 'linear-gradient(45deg, #10b981, #14b8a6, #22c55e, #16a34a)',
+        'gradient-crypto':
+          'linear-gradient(45deg, #10b981, #14b8a6, #22c55e, #16a34a)',
         'grid-pattern': `
           linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
           linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px)
@@ -138,10 +143,10 @@ export default {
       // 阴影效果
       boxShadow: {
         'glow-sm': '0 0 10px rgba(16, 185, 129, 0.3)',
-        'glow': '0 0 20px rgba(16, 185, 129, 0.4)',
+        glow: '0 0 20px rgba(16, 185, 129, 0.4)',
         'glow-lg': '0 0 30px rgba(16, 185, 129, 0.5)',
         'glow-xl': '0 0 40px rgba(16, 185, 129, 0.6)',
-        'defi': '0 4px 20px rgba(16, 185, 129, 0.1)',
+        defi: '0 4px 20px rgba(16, 185, 129, 0.1)',
         'defi-hover': '0 8px 30px rgba(16, 185, 129, 0.2)'
       },
       // 动画
@@ -154,7 +159,15 @@ export default {
       },
       // 字体
       fontFamily: {
-        'mono': ['ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace']
+        mono: [
+          'ui-monospace',
+          'SFMono-Regular',
+          'Monaco',
+          'Consolas',
+          'Liberation Mono',
+          'Courier New',
+          'monospace'
+        ]
       },
       // 间距系统 (8px基准)
       spacing: {
@@ -164,7 +177,7 @@ export default {
       },
       // 边框半径
       borderRadius: {
-        'xl': '0.75rem',
+        xl: '0.75rem',
         '2xl': '1rem',
         '3xl': '1.5rem'
       }

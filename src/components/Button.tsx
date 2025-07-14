@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import clsxm from '@/utils/clsxm'
+import useLogin from '@/hooks/useLogin'
 
 interface ButtonProps {
   children: React.ReactNode
@@ -11,6 +12,7 @@ interface ButtonProps {
   className?: string
   type?: 'button' | 'submit' | 'reset'
   loading?: boolean
+  auth?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -46,30 +48,56 @@ const Button: React.FC<ButtonProps> = ({
       disabled={isDisabled}
       type={type}
       className={clsxm(
-        'font-medium rounded-lg transition-colors relative overflow-hidden',
+        'relative flex items-center justify-center rounded-lg font-medium transition-colors',
         'focus:outline-none focus:ring-0',
-        'disabled:opacity-50 disabled:cursor-not-allowed',
+        'disabled:cursor-not-allowed disabled:opacity-50',
         variants[variant],
         sizes[size],
         // 禁用状态下不显示hover光效
         !isDisabled && variant === 'primary' && 'btn-hover',
         className
-      )}
-    >
+      )}>
       {/* 加载状态 */}
+      {children}
       {loading && (
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 border-2 border-current border-t-transparent rounded-full"
-        />
+          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+          className="ml-2">
+          <div className="h-4 w-4 rounded-full border-2 border-current border-t-transparent" />
+        </motion.div>
       )}
-      
-      {/* 按钮内容 */}
-      <span className={clsxm(loading && 'opacity-0')}>
-        {children}
-      </span>
     </motion.button>
+  )
+}
+
+interface AuthButtonProps extends ButtonProps {
+  hasAuth?: boolean
+}
+export const AuthButton: React.FC<AuthButtonProps> = ({
+  hasAuth = false,
+  onClick,
+  children,
+  ...others
+}) => {
+  const { login } = useLogin()
+  const handleClick = () => {
+    if (hasAuth) {
+      onClick && onClick()
+    } else {
+      login()
+    }
+  }
+  if (!hasAuth)
+    return (
+      <Button {...others} onClick={handleClick}>
+        Login
+      </Button>
+    )
+  return (
+    <Button onClick={handleClick} {...others}>
+      {children}
+    </Button>
   )
 }
 

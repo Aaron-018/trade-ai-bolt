@@ -94,16 +94,15 @@ const Modal: React.FC<ModalProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.2, ease: "easeInOut" }}
-          className="fixed inset-0 z-[70] flex items-center justify-center p-4"
-          onClick={handleOverlayClick}
-        >
+          transition={{ duration: 0.2, ease: 'easeInOut' }}
+          className="fixed inset-0 z-[70] flex items-center justify-center p-4">
           {/* 背景遮罩 */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={handleOverlayClick}
           />
 
           {/* 弹窗内容 */}
@@ -112,41 +111,38 @@ const Modal: React.FC<ModalProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{
-              type: "spring",
+              type: 'spring',
               stiffness: 300,
               damping: 30,
               mass: 0.8
             }}
             className={clsxm(
-              'relative w-full bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl',
-              // 移除 overflow-hidden，允许下拉框显示在弹窗外部
+              'relative w-full rounded-2xl border border-neutral-800 bg-neutral-900 shadow-2xl',
               sizeConfig[size],
               className
-            )}
-          >
+            )}>
             {/* 头部 */}
             {(title || showCloseButton) && (
-              <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-800 bg-neutral-900/95 rounded-t-2xl">
+              <div className="flex items-center justify-between rounded-t-2xl border-b border-neutral-800 bg-neutral-900/95 px-6 py-4">
                 {title && (
-                  <h2 className="text-lg font-semibold text-defi-text">{title}</h2>
+                  <h2 className="text-lg font-semibold text-defi-text">
+                    {title}
+                  </h2>
                 )}
                 {showCloseButton && (
                   <motion.button
-                    whileHover={{ scale: 1.1, rotate: 90 }}
+                    whileHover={{ rotate: 90 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={onClose}
-                    className="p-2 text-defi-text-muted hover:text-defi-text hover:bg-neutral-800 rounded-full transition-colors ml-auto"
-                  >
-                    <X className="w-5 h-5" />
+                    className="ml-auto rounded-full p-1.5 text-defi-text-muted transition-colors hover:bg-neutral-800 hover:text-defi-text">
+                    <X className="h-5 w-5" />
                   </motion.button>
                 )}
               </div>
             )}
 
             {/* 内容区域 */}
-            <div className="relative">
-              {children}
-            </div>
+            <div className="relative">{children}</div>
           </motion.div>
         </motion.div>
       )}

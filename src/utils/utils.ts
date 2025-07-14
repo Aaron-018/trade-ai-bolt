@@ -80,3 +80,22 @@ export const superLong = (str: string, len = 8) => {
     return str
   }
 }
+
+export const formatOptions = (str: string) => {
+  return str.split('|').filter(v => v)
+}
+
+export function formatNumber(num: string | number, fix = 8) {
+  const B = 1000000000
+  const M = 1000000
+  const K = 1000
+  if (Minus(num, B).toNumber() >= 0) {
+    return Division(num, B).toFixed(2) + 'B'
+  } else if (Minus(num, M).toNumber() >= 0) {
+    return Division(num, M).toFixed(2) + 'M'
+  } else if (Minus(num, K).toNumber() >= 0) {
+    return Division(num, K).toFixed(2) + 'K'
+  } else {
+    return fixNumber(num.toString(), fix)
+  }
+}

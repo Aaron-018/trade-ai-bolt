@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import Input from './Input'
-import MultiSelect from './MultiSelect'
-import Select from './Select'
-import Button from './Button'
+import Input from '@/components/Input'
+import MultiSelect from '@/components/MultiSelect'
+import Select from '@/components/Select'
+import Button from '@/components/Button'
 import clsxm from '@/utils/clsxm'
 
 interface TwitterMonitorFormProps {

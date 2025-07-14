@@ -58,8 +58,10 @@ const Textarea: React.FC<TextareaProps> = ({
   const getStatusColor = () => {
     if (error) return 'border-error-500 focus:border-error-500'
     if (success) return 'border-success-500 focus:border-success-500'
-    if (validation?.isValid === true) return 'border-success-500 focus:border-success-500'
-    if (validation?.isValid === false) return 'border-error-500 focus:border-error-500'
+    if (validation?.isValid === true)
+      return 'border-success-500 focus:border-success-500'
+    if (validation?.isValid === false)
+      return 'border-error-500 focus:border-error-500'
     if (isFocused) return 'border-primary-500'
     return 'border-neutral-700 hover:border-neutral-600'
   }
@@ -69,20 +71,20 @@ const Textarea: React.FC<TextareaProps> = ({
       return (
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className="w-4 h-4 border-2 border-primary-400 border-t-transparent rounded-full"
+          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+          className="h-4 w-4 rounded-full border-2 border-primary-400 border-t-transparent"
         />
       )
     }
-    
+
     if (error || validation?.isValid === false) {
-      return <AlertTriangle className="w-4 h-4 text-error-400" />
+      return <AlertTriangle className="h-4 w-4 text-error-400" />
     }
-    
+
     if (success || validation?.isValid === true) {
-      return <CheckCircle className="w-4 h-4 text-success-400" />
+      return <CheckCircle className="h-4 w-4 text-success-400" />
     }
-    
+
     return null
   }
 
@@ -122,11 +124,11 @@ const Textarea: React.FC<TextareaProps> = ({
           rows={rows}
           maxLength={maxLength}
           className={clsxm(
-            'w-full px-4 py-3 bg-neutral-800/80 backdrop-blur-sm border rounded-lg',
-            'text-defi-text text-sm placeholder:text-xs placeholder:text-defi-text-muted/70',
+            'w-full rounded-lg border bg-neutral-800/80 px-4 py-3 backdrop-blur-sm',
+            'text-sm text-defi-text placeholder:text-xs placeholder:text-defi-text-muted/70',
             'transition-colors duration-200 ease-out',
             'focus:outline-none focus:ring-0',
-            'disabled:opacity-50 disabled:cursor-not-allowed',
+            'disabled:cursor-not-allowed disabled:opacity-50',
             resize === 'none' && 'resize-none',
             resize === 'vertical' && 'resize-y',
             resize === 'horizontal' && 'resize-x',
@@ -144,11 +146,12 @@ const Textarea: React.FC<TextareaProps> = ({
         </div>
 
         {/* 字符计数器 */}
-        {(showCounter || maxLength) && (
+        {/* {(showCounter || maxLength) && (
           <div className="absolute bottom-3 right-3 text-xs text-defi-text-muted">
-            {value.length}{maxLength && `/${maxLength}`}
+            {value.length}
+            {maxLength && `/${maxLength}`}
           </div>
-        )}
+        )} */}
       </div>
 
       {/* 状态消息 */}
@@ -159,8 +162,7 @@ const Textarea: React.FC<TextareaProps> = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className={clsxm('text-xs', getStatusMessageColor())}
-          >
+            className={clsxm('text-xs', getStatusMessageColor())}>
             {getStatusMessage()}
           </motion.div>
         )}

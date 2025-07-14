@@ -43,8 +43,10 @@ const Input: React.FC<InputProps> = ({
   const getStatusColor = () => {
     if (error) return 'border-error-500 focus:border-error-500'
     if (success) return 'border-success-500 focus:border-success-500'
-    if (validation?.isValid === true) return 'border-success-500 focus:border-success-500'
-    if (validation?.isValid === false) return 'border-error-500 focus:border-error-500'
+    if (validation?.isValid === true)
+      return 'border-success-500 focus:border-success-500'
+    if (validation?.isValid === false)
+      return 'border-error-500 focus:border-error-500'
     if (isFocused) return 'border-primary-500'
     return 'border-neutral-700 hover:border-neutral-600'
   }
@@ -54,20 +56,20 @@ const Input: React.FC<InputProps> = ({
       return (
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className="w-4 h-4 border-2 border-primary-400 border-t-transparent rounded-full"
+          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+          className="h-4 w-4 rounded-full border-2 border-primary-400 border-t-transparent"
         />
       )
     }
-    
+
     if (error || validation?.isValid === false) {
-      return <AlertTriangle className="w-4 h-4 text-error-400" />
+      return <AlertTriangle className="h-4 w-4 text-error-400" />
     }
-    
+
     if (success || validation?.isValid === true) {
-      return <CheckCircle className="w-4 h-4 text-success-400" />
+      return <CheckCircle className="h-4 w-4 text-success-400" />
     }
-    
+
     return null
   }
 
@@ -107,11 +109,11 @@ const Input: React.FC<InputProps> = ({
           placeholder={placeholder}
           disabled={disabled}
           className={clsxm(
-            'w-full px-3 py-2 bg-neutral-800/80 backdrop-blur-sm border rounded-lg',
-            'text-defi-text text-sm placeholder:text-xs placeholder:text-defi-text-muted/70',
+            'w-full rounded-lg border bg-neutral-800/80 px-3 py-2 backdrop-blur-sm',
+            'text-sm text-defi-text placeholder:text-xs placeholder:text-defi-text-muted/70',
             'transition-colors duration-200 ease-out',
             'focus:outline-none focus:ring-0',
-            'disabled:opacity-50 disabled:cursor-not-allowed',
+            'disabled:cursor-not-allowed disabled:opacity-50',
             // 根据是否有后缀和状态图标调整右边距
             suffix && hasStatusIcon && 'pr-16',
             suffix && !hasStatusIcon && 'pr-10',
@@ -121,14 +123,12 @@ const Input: React.FC<InputProps> = ({
         />
 
         {/* 后缀和状态图标容器 */}
-        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center space-x-2">
+        <div className="absolute right-3 top-1/2 flex -translate-y-1/2 items-center space-x-2">
           {/* 后缀 */}
           {suffix && (
-            <span className="text-sm text-defi-text-muted">
-              {suffix}
-            </span>
+            <span className="text-sm text-defi-text-muted">{suffix}</span>
           )}
-          
+
           {/* 状态图标 */}
           {getStatusIcon()}
         </div>
@@ -142,8 +142,7 @@ const Input: React.FC<InputProps> = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className={clsxm('text-xs', getStatusMessageColor())}
-          >
+            className={clsxm('text-xs', getStatusMessageColor())}>
             {getStatusMessage()}
           </motion.div>
         )}

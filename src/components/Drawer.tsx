@@ -112,20 +112,19 @@ const Drawer: React.FC<DrawerProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ 
+          transition={{
             duration: 0.25,
-            ease: "easeInOut"
+            ease: 'easeInOut'
           }}
-          className="fixed inset-0 z-[60] flex"
-        >
+          className="fixed inset-0 z-[60] flex">
           {/* 背景遮罩 */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ 
+            transition={{
               duration: 0.25,
-              ease: "easeInOut"
+              ease: 'easeInOut'
             }}
             onClick={onClose}
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
@@ -137,37 +136,35 @@ const Drawer: React.FC<DrawerProps> = ({
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{
-              type: "spring",
+              type: 'spring',
               stiffness: 400,
               damping: 40,
               mass: 1
             }}
             className={clsxm(
-              'relative ml-auto bg-neutral-900 border-l border-neutral-800 shadow-2xl',
-              'flex flex-col h-full overflow-hidden',
+              'relative ml-auto border-l border-neutral-800 bg-neutral-900 shadow-2xl',
+              'flex h-full flex-col overflow-hidden',
               sizeConfig[size],
               className
-            )}
-          >
+            )}>
             {/* 头部 - 固定高度确保标题完整显示 */}
             {title && (
-              <div className="flex-shrink-0 flex items-center justify-between px-6 py-6 border-b border-neutral-800 bg-neutral-900">
-                <h2 className="text-xl font-semibold text-defi-text">{title}</h2>
+              <div className="flex flex-shrink-0 items-center justify-between border-b border-neutral-800 bg-neutral-900 px-6 py-6">
+                <h2 className="text-xl font-semibold text-defi-text">
+                  {title}
+                </h2>
                 <motion.button
                   whileHover={{ scale: 1.1, rotate: 90 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={onClose}
-                  className="p-2 text-defi-text-muted hover:text-defi-text hover:bg-neutral-800 rounded-full transition-colors"
-                >
-                  <X className="w-5 h-5" />
+                  className="rounded-full p-2 text-defi-text-muted transition-colors hover:bg-neutral-800 hover:text-defi-text">
+                  <X className="h-5 w-5" />
                 </motion.button>
               </div>
             )}
 
             {/* 内容区域 */}
-            <div className="flex-1 overflow-y-auto">
-              {children}
-            </div>
+            <div className="flex-1 overflow-y-auto">{children}</div>
           </motion.div>
         </motion.div>
       )}
